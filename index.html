@@ -18,7 +18,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .btn-login { background: #f97316; padding: 8px 20px !important; border-radius: 20px; }
 
 /* PAGES */
-.page { display: none; min-height: 100vh; }
+.page { display: none; }
 .page.active { display: block; }
 
 /* HERO */
@@ -92,7 +92,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .cart-summary-total { display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; color: #1f2937; border-top: 2px solid #e5e7eb; padding-top: 15px; margin-top: 15px; }
 
 /* ADMIN DASHBOARD */
-.admin-page { display: none; min-height: 100vh; background: #f3f4f6; }
+.admin-page { display: none; }
 .admin-page.active { display: flex; }
 .sidebar { width: 260px; background: #1f2937; color: white; padding: 30px 20px; min-height: 100vh; position: fixed; left: 0; top: 0; }
 .sidebar h2 { font-size: 22px; margin-bottom: 40px; color: #f97316; }
@@ -165,15 +165,15 @@ tr:hover { background: #f9fafb; }
 <!-- NAVIGATION -->
 <nav class="navbar">
 <div class="nav-brand">
-<a onclick="goToPage('home')">NijaSwap</a>
+<a href="javascript:void(0)" onclick="goToPage('home')">NijaSwap</a>
 </div>
 <div class="nav-links">
-<a onclick="goToPage('home')">Home</a>
-<a onclick="goToPage('listings')">Listings</a>
-<a onclick="goToPage('sell')">Sell Item</a>
-<a onclick="goToPage('cart')">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
-<a onclick="goToPage('admin')">Admin</a>
-<a onclick="goToPage('login')" class="btn-login">Login</a>
+<a href="javascript:void(0)" onclick="goToPage('home')">Home</a>
+<a href="javascript:void(0)" onclick="goToPage('listings')">Listings</a>
+<a href="javascript:void(0)" onclick="goToPage('sell')">Sell Item</a>
+<a href="javascript:void(0)" onclick="goToPage('cart')">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
+<a href="javascript:void(0)" onclick="goToPage('admin')">Admin</a>
+<a href="javascript:void(0)" onclick="goToPage('login')" class="btn-login">Login</a>
 </div>
 </nav>
 
@@ -189,10 +189,10 @@ tr:hover { background: #f9fafb; }
 <button class="btn btn-secondary" onclick="goToPage('sell')">Sell Something</button>
 </div>
 <div class="features">
-<span>Verified Sellers</span>
-<span>Secure Payments</span>
-<span>Fast Delivery</span>
-<span>Mobile Friendly</span>
+<span>[OK] Verified Sellers</span>
+<span>[LOCK] Secure Payments</span>
+<span>[BOLT] Fast Delivery</span>
+<span>[PHONE] Mobile Friendly</span>
 </div>
 </div>
 </section>
@@ -311,7 +311,7 @@ tr:hover { background: #f9fafb; }
 <input type="password" required placeholder="********">
 </div>
 <button type="submit" class="btn btn-primary btn-full">Login</button>
-<p class="auth-switch">Don't have an account? <a onclick="goToPage('register')">Register</a></p>
+<p class="auth-switch">Don't have an account? <a href="javascript:void(0)" onclick="goToPage('register')">Register</a></p>
 </form>
 </div>
 </div>
@@ -340,7 +340,7 @@ tr:hover { background: #f9fafb; }
 <input type="password" required placeholder="********">
 </div>
 <button type="submit" class="btn btn-primary btn-full">Register</button>
-<p class="auth-switch">Already have an account? <a onclick="goToPage('login')">Login</a></p>
+<p class="auth-switch">Already have an account? <a href="javascript:void(0)" onclick="goToPage('login')">Login</a></p>
 </form>
 </div>
 </div>
@@ -430,6 +430,7 @@ tr:hover { background: #f9fafb; }
 </footer>
 
 <script>
+/* DATA */
 var listings = [
 { id: 1, name: 'iPhone 15 Pro Max', price: 1200000, location: 'lagos', category: 'phones', seller: 'John Doe', status: 'approved', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400', description: 'Brand new iPhone 15 Pro Max with 256GB storage. Comes with original charger and box.' },
 { id: 2, name: 'Toyota Camry 2020', price: 8500000, location: 'abuja', category: 'cars', seller: 'Jane Smith', status: 'approved', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400', description: 'Well maintained 2020 Toyota Camry. Low mileage, full service history available.' },
@@ -447,58 +448,79 @@ var pendingApprovals = [
 
 var cart = [];
 
+/* NAVIGATION */
 function goToPage(pageName) {
+var i;
 var pages = document.getElementsByClassName('page');
-for (var i = 0; i < pages.length; i++) {
+for (i = 0; i < pages.length; i++) {
 pages[i].classList.remove('active');
 }
 var adminPages = document.getElementsByClassName('admin-page');
-for (var i = 0; i < adminPages.length; i++) {
+for (i = 0; i < adminPages.length; i++) {
 adminPages[i].classList.remove('active');
 }
 var target = document.getElementById(pageName);
 if (target) {
 target.classList.add('active');
-window.scrollTo(0, 0);
 }
-if (pageName === 'listings') renderListings();
-if (pageName === 'admin') renderApprovals();
-if (pageName === 'cart') renderCart();
+window.scrollTo(0, 0);
+if (pageName === 'listings') {
+renderListings();
+}
+if (pageName === 'admin') {
+renderApprovals();
+}
+if (pageName === 'cart') {
+renderCart();
+}
 }
 
 function goToSection(sectionName) {
+var i;
 var sections = document.getElementsByClassName('section');
-for (var i = 0; i < sections.length; i++) {
+for (i = 0; i < sections.length; i++) {
 sections[i].classList.remove('active');
 }
 var target = document.getElementById(sectionName);
-if (target) target.classList.add('active');
+if (target) {
+target.classList.add('active');
+}
 var buttons = document.querySelectorAll('.sidebar button');
-for (var i = 0; i < buttons.length; i++) {
+for (i = 0; i < buttons.length; i++) {
 buttons[i].classList.remove('active');
 }
-if (event && event.target) event.target.classList.add('active');
+if (event && event.target) {
+event.target.classList.add('active');
+}
 }
 
+/* LISTINGS */
 function renderListings() {
 var grid = document.getElementById('listings-grid');
+if (!grid) return;
+
 var catFilter = document.getElementById('category-filter');
 var locFilter = document.getElementById('location-filter');
 var searchInput = document.getElementById('search-input');
 
-var catValue = catFilter ? catFilter.value : 'all';
-var locValue = locFilter ? locFilter.value : 'all';
-var searchValue = searchInput ? searchInput.value.toLowerCase() : '';
+var catValue = 'all';
+var locValue = 'all';
+var searchValue = '';
+
+if (catFilter) catValue = catFilter.value;
+if (locFilter) locValue = locFilter.value;
+if (searchInput) searchValue = searchInput.value.toLowerCase();
 
 var html = '';
-for (var i = 0; i < listings.length; i++) {
+var i;
+for (i = 0; i < listings.length; i++) {
 var item = listings[i];
 var catMatch = catValue === 'all' || item.category === catValue;
 var locMatch = locValue === 'all' || item.location === locValue;
 var searchMatch = item.name.toLowerCase().indexOf(searchValue) !== -1;
 if (catMatch && locMatch && searchMatch && item.status === 'approved') {
 var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
-html += '<div class="card" onclick="showProductDetail(' + item.id + ')" style="cursor: pointer;">' +
+html = html + '<div class="card" onclick="showProductDetail(' + item.id + ')" style="cursor: pointer;">' +
 '<img src="' + item.image + '" alt="' + item.name + '" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=No+Image'">' +
 '<div class="card-body">' +
 '<h3>' + item.name + '</h3>' +
@@ -516,9 +538,11 @@ function doFilterListings() {
 renderListings();
 }
 
+/* PRODUCT DETAIL */
 function showProductDetail(id) {
 var item = null;
-for (var i = 0; i < listings.length; i++) {
+var i;
+for (i = 0; i < listings.length; i++) {
 if (listings[i].id === id) {
 item = listings[i];
 break;
@@ -528,6 +552,8 @@ if (!item) return;
 
 var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
 var content = document.getElementById('product-detail-content');
+if (!content) return;
+
 content.innerHTML =
 '<div class="product-detail">' +
 '<div class="product-detail-grid">' +
@@ -548,9 +574,11 @@ content.innerHTML =
 goToPage('product-detail');
 }
 
+/* CART */
 function addToCart(id) {
 var item = null;
-for (var i = 0; i < listings.length; i++) {
+var i;
+for (i = 0; i < listings.length; i++) {
 if (listings[i].id === id) {
 item = listings[i];
 break;
@@ -559,14 +587,14 @@ break;
 if (!item) return;
 
 var existing = null;
-for (var i = 0; i < cart.length; i++) {
+for (i = 0; i < cart.length; i++) {
 if (cart[i].id === id) {
 existing = cart[i];
 break;
 }
 }
 if (existing) {
-existing.quantity++;
+existing.quantity = existing.quantity + 1;
 } else {
 cart.push({ id: item.id, name: item.name, price: item.price, location: item.location, image: item.image, quantity: 1 });
 }
@@ -577,7 +605,8 @@ alert(item.name + ' added to cart!');
 
 function removeFromCart(id) {
 var newCart = [];
-for (var i = 0; i < cart.length; i++) {
+var i;
+for (i = 0; i < cart.length; i++) {
 if (cart[i].id !== id) {
 newCart.push(cart[i]);
 }
@@ -589,9 +618,11 @@ updateCartBadge();
 
 function updateCartBadge() {
 var badge = document.getElementById('cart-badge');
+if (!badge) return;
 var total = 0;
-for (var i = 0; i < cart.length; i++) {
-total += cart[i].quantity;
+var i;
+for (i = 0; i < cart.length; i++) {
+total = total + cart[i].quantity;
 }
 if (total > 0) {
 badge.innerHTML = total;
@@ -603,25 +634,30 @@ badge.style.display = 'none';
 
 function renderCart() {
 var container = document.getElementById('cart-items');
+if (!container) return;
+
 if (cart.length === 0) {
 container.innerHTML = '<div style="text-align: center; padding: 60px; color: #6b7280;"><h3>Your cart is empty</h3><p>Browse listings to add items</p><button class="btn btn-primary" onclick="goToPage('listings')" style="margin-top: 20px;">Browse Listings</button></div>';
-document.getElementById('cart-subtotal').innerHTML = '0';
-document.getElementById('cart-total').innerHTML = '2,500';
+var subEl = document.getElementById('cart-subtotal');
+var totEl = document.getElementById('cart-total');
+if (subEl) subEl.innerHTML = '0';
+if (totEl) totEl.innerHTML = '2,500';
 return;
 }
 
 var subtotal = 0;
-for (var i = 0; i < cart.length; i++) {
-subtotal += cart[i].price * cart[i].quantity;
+var i;
+for (i = 0; i < cart.length; i++) {
+subtotal = subtotal + (cart[i].price * cart[i].quantity);
 }
 var delivery = 2500;
 var total = subtotal + delivery;
 
 var html = '';
-for (var i = 0; i < cart.length; i++) {
+for (i = 0; i < cart.length; i++) {
 var item = cart[i];
 var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
-html += '<div class="cart-item">' +
+html = html + '<div class="cart-item">' +
 '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-image" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image'">' +
 '<div class="cart-item-info">' +
 '<h4>' + item.name + '</h4>' +
@@ -633,22 +669,36 @@ html += '<div class="cart-item">' +
 }
 container.innerHTML = html;
 
-document.getElementById('cart-subtotal').innerHTML = subtotal.toLocaleString();
-document.getElementById('cart-total').innerHTML = total.toLocaleString();
+var subEl = document.getElementById('cart-subtotal');
+var totEl = document.getElementById('cart-total');
+if (subEl) subEl.innerHTML = subtotal.toLocaleString();
+if (totEl) totEl.innerHTML = total.toLocaleString();
 }
 
+/* SELL FORM */
 function doHandleSell(event) {
 event.preventDefault();
+var nameInput = document.getElementById('item-name');
+var priceInput = document.getElementById('item-price');
+var catInput = document.getElementById('item-category');
+var locInput = document.getElementById('item-location');
+var descInput = document.getElementById('item-desc');
+
+if (!nameInput || !priceInput || !catInput || !locInput) {
+alert('Please fill all required fields');
+return;
+}
+
 var newItem = {
 id: Date.now(),
-name: document.getElementById('item-name').value,
-price: parseInt(document.getElementById('item-price').value),
-category: document.getElementById('item-category').value,
-location: document.getElementById('item-location').value,
-description: document.getElementById('item-desc').value || 'No description provided',
+name: nameInput.value,
+price: parseInt(priceInput.value),
+category: catInput.value,
+location: locInput.value,
+description: (descInput && descInput.value) ? descInput.value : 'No description provided',
 seller: 'Current User',
 status: 'pending',
-image: 'https://via.placeholder.com/300x180?text=' + encodeURIComponent(document.getElementById('item-name').value)
+image: 'https://via.placeholder.com/300x180?text=' + encodeURIComponent(nameInput.value)
 };
 
 pendingApprovals.push({
@@ -667,6 +717,7 @@ goToPage('listings');
 updateAdminStats();
 }
 
+/* AUTH */
 function doHandleLogin(event) {
 event.preventDefault();
 alert('Login successful! Welcome back.');
@@ -679,14 +730,16 @@ alert('Account created successfully! Please login.');
 goToPage('login');
 }
 
+/* ADMIN */
 function renderApprovals() {
 var tbody = document.getElementById('approvals-list');
 if (!tbody) return;
 
 var html = '';
-for (var i = 0; i < pendingApprovals.length; i++) {
+var i;
+for (i = 0; i < pendingApprovals.length; i++) {
 var item = pendingApprovals[i];
-html += '<tr>' +
+html = html + '<tr>' +
 '<td>' + item.name + '</td>' +
 '<td>' + item.seller + '</td>' +
 '<td>N' + item.price.toLocaleString() + '</td>' +
@@ -702,7 +755,8 @@ updateAdminStats();
 }
 
 function approveItem(id) {
-for (var i = 0; i < listings.length; i++) {
+var i;
+for (i = 0; i < listings.length; i++) {
 if (listings[i].id === id) {
 listings[i].status = 'approved';
 break;
@@ -710,7 +764,7 @@ break;
 }
 
 var newPending = [];
-for (var i = 0; i < pendingApprovals.length; i++) {
+for (i = 0; i < pendingApprovals.length; i++) {
 if (pendingApprovals[i].id !== id) {
 newPending.push(pendingApprovals[i]);
 }
@@ -723,7 +777,8 @@ alert('Item approved and is now live!');
 
 function rejectItem(id) {
 var newListings = [];
-for (var i = 0; i < listings.length; i++) {
+var i;
+for (i = 0; i < listings.length; i++) {
 if (listings[i].id !== id) {
 newListings.push(listings[i]);
 }
@@ -731,7 +786,7 @@ newListings.push(listings[i]);
 listings = newListings;
 
 var newPending = [];
-for (var i = 0; i < pendingApprovals.length; i++) {
+for (i = 0; i < pendingApprovals.length; i++) {
 if (pendingApprovals[i].id !== id) {
 newPending.push(pendingApprovals[i]);
 }
@@ -747,8 +802,11 @@ var listingsEl = document.getElementById('stat-listings');
 var pendingEl = document.getElementById('stat-pending');
 if (listingsEl) {
 var count = 0;
-for (var i = 0; i < listings.length; i++) {
-if (listings[i].status === 'approved') count++;
+var i;
+for (i = 0; i < listings.length; i++) {
+if (listings[i].status === 'approved') {
+count = count + 1;
+}
 }
 listingsEl.innerHTML = count.toLocaleString();
 }
@@ -757,6 +815,7 @@ pendingEl.innerHTML = pendingApprovals.length;
 }
 }
 
+/* INIT */
 window.onload = function() {
 renderListings();
 renderApprovals();
