@@ -1,363 +1,175 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NijaSwap - Buy & Sell in Nigeria | RadiantWaves Media</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        
-        .nav { 
-            background: #1f2937; 
-            padding: 15px; 
-            text-align: center; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 100;
-        }
-        .nav a { 
-            color: white; 
-            text-decoration: none; 
-            margin: 0 15px; 
-            font-weight: 500; 
-            cursor: pointer;
-        }
-        .nav a:hover { color: #f97316; }
-        
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(to bottom right, #f97316, #dc2626);
-            color: white;
-            padding: 100px 20px 20px;
-            text-align: center;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding-top: 60px; }
-        h1 { font-size: 60px; font-weight: bold; margin-bottom: 20px; }
-        .tagline { font-size: 28px; margin-bottom: 10px; }
-        .brand { font-size: 18px; opacity: 0.8; margin-bottom: 40px; }
-        
-        .btn {
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-primary { background-color: white; color: #f97316; }
-        .btn-secondary { background-color: transparent; color: white; border: 2px solid white; }
-        
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            font-size: 14px;
-            flex-wrap: wrap;
-            margin-top: 60px;
-        }
-        
-        .page { display: none; }
-        .page.active { display: block; }
-        
-        .listings {
-            padding: 100px 20px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .listings h2 { font-size: 32px; margin-bottom: 20px; color: #1f2937; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: white;
-            padding: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .card h3 { font-size: 18px; margin-bottom: 10px; color: #1f2937; }
-        .price { color: #f97316; font-size: 20px; font-weight: bold; }
-        .location { color: #666; font-size: 14px; margin-top: 5px; }
-        .category {
-            display: inline-block;
-            background-color: #f3f4f6;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-top: 10px;
-        }
-        
-        .admin-page {
-            display: none;
-            padding-top: 80px;
-            min-height: 100vh;
-            background: #f3f4f6;
-        }
-        .admin-page.active { display: flex; }
-        
-        .sidebar {
-            width: 250px;
-            background: #1f2937;
-            color: white;
-            padding: 20px;
-            min-height: 100vh;
-            position: fixed;
-        }
-        .sidebar h2 { font-size: 24px; margin-bottom: 30px; }
-        .sidebar button {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 8px;
-            background: transparent;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            text-align: left;
-            cursor: pointer;
-        }
-        .sidebar button:hover, .sidebar button.active { background: #f97316; }
-        
-        .main-content {
-            margin-left: 250px;
-            padding: 30px;
-            flex: 1;
-        }
-        .main-content h1 { font-size: 28px; margin-bottom: 30px; color: #1f2937; }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .stat-card p { color: #666; font-size: 14px; }
-        .stat-card h3 { font-size: 28px; color: #1f2937; margin-top: 5px; }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        th { background: #f9fafb; font-weight: 600; }
-        
-        .btn-approve {
-            background: #10b981;
-            color: white;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 8px;
-        }
-        .btn-reject {
-            background: #ef4444;
-            color: white;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .section { display: none; }
-        .section.active { display: block; }
-    </style>
-</head>
-<body>
+// ===== DATA STORE =====
+let listings = [
+    { id: 1, name: 'iPhone 15 Pro Max', price: 1200000, location: 'lagos', category: 'phones', seller: 'John Doe', status: 'approved' },
+    { id: 2, name: 'Toyota Camry 2020', price: 8500000, location: 'abuja', category: 'cars', seller: 'Jane Smith', status: 'approved' },
+    { id: 3, name: 'MacBook Pro M3', price: 2500000, location: 'lagos', category: 'laptops', seller: 'Mike Johnson', status: 'approved' },
+    { id: 4, name: 'PlayStation 5', price: 450000, location: 'ph', category: 'gaming', seller: 'Sarah Lee', status: 'approved' },
+    { id: 5, name: 'Samsung 65" TV', price: 680000, location: 'kano', category: 'electronics', seller: 'David Brown', status: 'approved' },
+    { id: 6, name: 'Nike Air Jordan', price: 85000, location: 'lagos', category: 'fashion', seller: 'Chris Wilson', status: 'approved' }
+];
 
-    <div class="nav">
-        <a onclick="showPage('home')">Home</a>
-        <a onclick="showPage('listings')">Listings</a>
-        <a onclick="showPage('admin')">Admin Dashboard</a>
-    </div>
+let pendingApprovals = [
+    { id: 7, name: 'iPhone 14 Pro', price: 950000, seller: 'John Doe', date: '2026-05-16' },
+    { id: 8, name: 'Toyota Corolla 2019', price: 5200000, seller: 'Jane Smith', date: '2026-05-16' },
+    { id: 9, name: 'Samsung TV 55"', price: 450000, seller: 'Mike Johnson', date: '2026-05-15' }
+];
 
-    <div id="home" class="page active">
-        <div class="hero">
-            <div class="container">
-                <h1>NijaSwap</h1>
-                <p class="tagline">Buy & Sell in Nigeria</p>
-                <p class="brand">Under RadiantWaves Media</p>
-                <div class="buttons">
-                    <button class="btn btn-primary" onclick="alert('Login coming soon!')">Login</button>
-                    <button class="btn btn-secondary" onclick="alert('Register coming soon!')">Register</button>
-                </div>
-                <div class="features">
-                    <span>✅ Verified Sellers</span>
-                    <span>🔒 Secure Payments</span>
-                    <span>⚡ Fast Delivery</span>
-                </div>
-            </div>
+// ===== NAVIGATION =====
+function showPage(pageName) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.admin-page').forEach(p => p.classList.remove('active'));
+    
+    // Show selected page
+    const page = document.getElementById(pageName);
+    if (page) {
+        page.classList.add('active');
+        window.scrollTo(0, 0);
+    }
+    
+    // Update page-specific content
+    if (pageName === 'listings') renderListings();
+    if (pageName === 'admin') renderApprovals();
+}
+
+function showSection(sectionName) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(sectionName).classList.add('active');
+    
+    document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
+}
+
+// ===== LISTINGS =====
+function renderListings() {
+    const grid = document.getElementById('listings-grid');
+    const categoryFilter = document.getElementById('category-filter')?.value || 'all';
+    const locationFilter = document.getElementById('location-filter')?.value || 'all';
+    
+    const filtered = listings.filter(item => {
+        const catMatch = categoryFilter === 'all' || item.category === categoryFilter;
+        const locMatch = locationFilter === 'all' || item.location === locationFilter;
+        return catMatch && locMatch && item.status === 'approved';
+    });
+    
+    grid.innerHTML = filtered.map(item => `
+        <div class="card">
+            <h3>${item.name}</h3>
+            <p class="price">₦${item.price.toLocaleString()}</p>
+            <p class="location">📍 ${item.location.charAt(0).toUpperCase() + item.location.slice(1)}</p>
+            <span class="category">${item.category}</span>
+            <button class="btn btn-primary btn-full" style="margin-top: 15px;" onclick="contactSeller('${item.seller}')">
+                Contact Seller
+            </button>
         </div>
-    </div>
+    `).join('');
+}
 
-    <div id="listings" class="page">
-        <div class="listings">
-            <h2>All Listings</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>iPhone 15 Pro Max</h3>
-                    <p class="price">₦1,200,000</p>
-                    <p class="location">📍 Lagos</p>
-                    <span class="category">Phones</span>
-                </div>
-                <div class="card">
-                    <h3>Toyota Camry 2020</h3>
-                    <p class="price">₦8,500,000</p>
-                    <p class="location">📍 Abuja</p>
-                    <span class="category">Cars</span>
-                </div>
-                <div class="card">
-                    <h3>MacBook Pro M3</h3>
-                    <p class="price">₦2,500,000</p>
-                    <p class="location">📍 Lagos</p>
-                    <span class="category">Laptops</span>
-                </div>
-                <div class="card">
-                    <h3>PlayStation 5</h3>
-                    <p class="price">₦450,000</p>
-                    <p class="location">📍 Port Harcourt</p>
-                    <span class="category">Gaming</span>
-                </div>
-                <div class="card">
-                    <h3>Samsung 65" TV</h3>
-                    <p class="price">₦680,000</p>
-                    <p class="location">📍 Kano</p>
-                    <span class="category">Electronics</span>
-                </div>
-                <div class="card">
-                    <h3>Nike Air Jordan</h3>
-                    <p class="price">₦85,000</p>
-                    <p class="location">📍 Lagos</p>
-                    <span class="category">Fashion</span>
-                </div>
-            </div>
-        </div>
-    </div>
+function filterListings() {
+    renderListings();
+}
 
-    <div id="admin" class="admin-page">
-        <div class="sidebar">
-            <h2>NijaSwap Admin</h2>
-            <button class="active" onclick="showSection('dashboard')">Dashboard</button>
-            <button onclick="showSection('approvals')">Pending Approvals</button>
-            <button onclick="showSection('users')">Users</button>
-            <button onclick="showSection('payments')">Payments</button>
-        </div>
-        
-        <div class="main-content">
-            <div id="dashboard" class="section active">
-                <h1>Dashboard Overview</h1>
-                <div class="stats">
-                    <div class="stat-card">
-                        <p>Total Users</p>
-                        <h3>1,247</h3>
-                    </div>
-                    <div class="stat-card">
-                        <p>Total Listings</p>
-                        <h3>3,856</h3>
-                    </div>
-                    <div class="stat-card">
-                        <p>Pending Approval</p>
-                        <h3>12</h3>
-                    </div>
-                    <div class="stat-card">
-                        <p>Total Revenue</p>
-                        <h3>₦2.4M</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="approvals" class="section">
-                <h1>Pending Approvals</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Seller</th>
-                            <th>Price</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>iPhone 14 Pro</td>
-                            <td>John Doe</td>
-                            <td>₦950,000</td>
-                            <td>
-                                <button class="btn-approve" onclick="this.parentElement.parentElement.style.display='none'; alert('Approved!')">Approve</button>
-                                <button class="btn-reject" onclick="this.parentElement.parentElement.style.display='none'; alert('Rejected!')">Reject</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Toyota Corolla 2019</td>
-                            <td>Jane Smith</td>
-                            <td>₦5,200,000</td>
-                            <td>
-                                <button class="btn-approve" onclick="this.parentElement.parentElement.style.display='none'; alert('Approved!')">Approve</button>
-                                <button class="btn-reject" onclick="this.parentElement.parentElement.style.display='none'; alert('Rejected!')">Reject</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Samsung TV 55"</td>
-                            <td>Mike Johnson</td>
-                            <td>₦450,000</td>
-                            <td>
-                                <button class="btn-approve" onclick="this.parentElement.parentElement.style.display='none'; alert('Approved!')">Approve</button>
-                                <button class="btn-reject" onclick="this.parentElement.parentElement.style.display='none'; alert('Rejected!')">Reject</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div id="users" class="section">
-                <h1>User Management</h1>
-                <p>Users list will appear here.</p>
-            </div>
-            
-            <div id="payments" class="section">
-                <h1>Payment Tracking</h1>
-                <p>Payment records will appear here.</p>
-            </div>
-        </div>
-    </div>
+function contactSeller(seller) {
+    alert(`Contacting ${seller}... (Feature coming soon!)`);
+}
 
-    <script>
-        function showPage(pageName) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.admin-page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageName).classList.add('active');
-        }
-        
-        function showSection(sectionName) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.getElementById(sectionName).classList.add('active');
-            document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-    </script>
+// ===== SELL FORM =====
+function handleSell(event) {
+    event.preventDefault();
+    
+    const newItem = {
+        id: Date.now(),
+        name: document.getElementById('item-name').value,
+        price: parseInt(document.getElementById('item-price').value),
+        category: document.getElementById('item-category').value,
+        location: document.getElementById('item-location').value,
+        seller: 'Current User',
+        status: 'pending'
+    };
+    
+    pendingApprovals.push({
+        id: newItem.id,
+        name: newItem.name,
+        price: newItem.price,
+        seller: newItem.seller,
+        date: new Date().toISOString().split('T')[0]
+    });
+    
+    listings.push(newItem);
+    
+    alert('Item submitted for approval! It will be visible once approved by admin.');
+    event.target.reset();
+    showPage('listings');
+    
+    // Update admin stats
+    updateAdminStats();
+}
 
-</body>
-</html>
+// ===== AUTH =====
+function handleLogin(event) {
+    event.preventDefault();
+    alert('Login successful! Welcome back.');
+    showPage('home');
+}
+
+function handleRegister(event) {
+    event.preventDefault();
+    alert('Account created successfully! Please login.');
+    showPage('login');
+}
+
+// ===== ADMIN =====
+function renderApprovals() {
+    const tbody = document.getElementById('approvals-list');
+    if (!tbody) return;
+    
+    tbody.innerHTML = pendingApprovals.map(item => `
+        <tr>
+            <td>${item.name}</td>
+            <td>${item.seller}</td>
+            <td>₦${item.price.toLocaleString()}</td>
+            <td>${item.date}</td>
+            <td>
+                <button class="btn-approve" onclick="approveItem(${item.id})">Approve</button>
+                <button class="btn-reject" onclick="rejectItem(${item.id})">Reject</button>
+            </td>
+        </tr>
+    `).join('');
+    
+    updateAdminStats();
+}
+
+function approveItem(id) {
+    const item = listings.find(l => l.id === id);
+    if (item) item.status = 'approved';
+    
+    pendingApprovals = pendingApprovals.filter(p => p.id !== id);
+    renderApprovals();
+    alert('Item approved and is now live!');
+}
+
+function rejectItem(id) {
+    listings = listings.filter(l => l.id !== id);
+    pendingApprovals = pendingApprovals.filter(p => p.id !== id);
+    renderApprovals();
+    alert('Item rejected and removed.');
+}
+
+function updateAdminStats() {
+    const usersEl = document.getElementById('stat-users');
+    const listingsEl = document.getElementById('stat-listings');
+    const pendingEl = document.getElementById('stat-pending');
+    
+    if (usersEl) usersEl.textContent = '1,247';
+    if (listingsEl) listingsEl.textContent = listings.filter(l => l.status === 'approved').length.toLocaleString();
+    if (pendingEl) pendingEl.textContent = pendingApprovals.length;
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', () => {
+    renderListings();
+    renderApprovals();
+    updateAdminStats();
+});
