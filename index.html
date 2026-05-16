@@ -35,10 +35,34 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .btn-small { padding: 6px 14px; font-size: 13px; border-radius: 6px; border: none; cursor: pointer; }
 .btn-danger { background: #ef4444; color: white; }
 
-/* FEATURES */
-.features { display: flex; justify-content: center; gap: 30px; font-size: 15px; flex-wrap: wrap; opacity: 0.9; }
-.features span { background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(10px); display: flex; align-items: center; gap: 8px; }
-.feature-icon { font-size: 20px; }
+/* FEATURES - FIXED */
+.features { display: flex; justify-content: center; gap: 20px; font-size: 15px; flex-wrap: wrap; }
+.feature-link { 
+    background: rgba(255,255,255,0.2); 
+    padding: 12px 24px; 
+    border-radius: 30px; 
+    backdrop-filter: blur(10px);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+.feature-link:hover { 
+    background: rgba(255,255,255,0.35); 
+    transform: translateY(-2px);
+    color: white;
+}
+.feature-icon { 
+    font-size: 22px; 
+    display: inline-block;
+}
+.icon-check { color: #22c55e; }
+.icon-lock { color: #fbbf24; }
+.icon-bolt { color: #60a5fa; }
+.icon-phone { color: #a78bfa; }
 
 /* LISTINGS PAGE */
 .page-header { display: flex; justify-content: space-between; align-items: center; margin: 80px 0 30px; flex-wrap: wrap; gap: 20px; }
@@ -135,6 +159,8 @@ tr:hover { background: #f9fafb; }
 .cart-item { flex-direction: column; text-align: center; }
 .filters { width: 100%; }
 .filters input, .filters select { width: 100%; }
+.features { gap: 10px; }
+.feature-link { padding: 10px 16px; font-size: 13px; }
 }
 </style>
 </head>
@@ -163,10 +189,22 @@ tr:hover { background: #f9fafb; }
 <a href="sell.html" class="btn btn-secondary">Sell Something</a>
 </div>
 <div class="features">
-<span><span class="feature-icon">&#10003;</span> Verified Sellers</span>
-<span><span class="feature-icon">&#128274;</span> Secure Payments</span>
-<span><span class="feature-icon">&#9889;</span> Fast Delivery</span>
-<span><span class="feature-icon">&#128241;</span> Mobile Friendly</span>
+<a href="listings.html" class="feature-link">
+<span class="feature-icon icon-check">&#10003;</span>
+<span>Verified Sellers</span>
+</a>
+<a href="cart.html" class="feature-link">
+<span class="feature-icon icon-lock">&#128274;</span>
+<span>Secure Payments</span>
+</a>
+<a href="listings.html" class="feature-link">
+<span class="feature-icon icon-bolt">&#9889;</span>
+<span>Fast Delivery</span>
+</a>
+<a href="index.html" class="feature-link">
+<span class="feature-icon icon-phone">&#128241;</span>
+<span>Mobile Friendly</span>
+</a>
 </div>
 </div>
 </section>
