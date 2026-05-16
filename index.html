@@ -11,15 +11,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 
 /* NAVIGATION */
 .navbar { background: #1f2937; padding: 0 20px; position: fixed; width: 100%; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; height: 60px; }
-.nav-brand a { color: #f97316; font-size: 24px; font-weight: bold; text-decoration: none; cursor: pointer; }
+.nav-brand a { color: #f97316; font-size: 24px; font-weight: bold; text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 25px; }
-.nav-links a { color: white; text-decoration: none; font-weight: 500; cursor: pointer; transition: color 0.3s; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; }
 .nav-links a:hover { color: #f97316; }
 .btn-login { background: #f97316; padding: 8px 20px !important; border-radius: 20px; }
-
-/* PAGES */
-.page { display: none; }
-.page.active { display: block; }
 
 /* HERO */
 .hero { min-height: 100vh; background: linear-gradient(135deg, #f97316 0%, #dc2626 100%); color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 40px; }
@@ -31,9 +27,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 /* BUTTONS */
 .btn { padding: 14px 32px; border-radius: 30px; font-size: 16px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-block; transition: all 0.3s; margin: 5px; }
 .btn-primary { background: white; color: #f97316; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 .btn-secondary { background: transparent; color: white; border: 2px solid white; }
-.btn-secondary:hover { background: white; color: #f97316; }
 .btn-full { width: 100%; }
 .btn-small { padding: 6px 14px; font-size: 13px; border-radius: 6px; border: none; cursor: pointer; }
 .btn-danger { background: #ef4444; color: white; }
@@ -67,9 +61,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: #374151; font-size: 14px; }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #f97316; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1); }
 .auth-switch { text-align: center; margin-top: 20px; color: #6b7280; }
-.auth-switch a { color: #f97316; cursor: pointer; font-weight: 600; }
+.auth-switch a { color: #f97316; font-weight: 600; }
 
 /* PRODUCT DETAIL */
 .product-detail { margin-top: 80px; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
@@ -84,20 +77,16 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .cart-item { display: flex; align-items: center; gap: 20px; background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
 .cart-item-image { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; background: #e5e7eb; }
 .cart-item-info { flex: 1; }
-.cart-item-info h4 { color: #1f2937; margin-bottom: 5px; }
-.cart-item-info .price { font-size: 18px; }
 .cart-summary { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); position: sticky; top: 80px; }
 .cart-summary h3 { margin-bottom: 20px; color: #1f2937; }
 .cart-summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; color: #6b7280; }
 .cart-summary-total { display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; color: #1f2937; border-top: 2px solid #e5e7eb; padding-top: 15px; margin-top: 15px; }
 
 /* ADMIN DASHBOARD */
-.admin-page { display: none; }
-.admin-page.active { display: flex; }
 .sidebar { width: 260px; background: #1f2937; color: white; padding: 30px 20px; min-height: 100vh; position: fixed; left: 0; top: 0; }
 .sidebar h2 { font-size: 22px; margin-bottom: 40px; color: #f97316; }
-.sidebar nav button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 16px; margin-bottom: 8px; background: transparent; color: #9ca3af; border: none; border-radius: 8px; text-align: left; cursor: pointer; font-size: 15px; transition: all 0.3s; }
-.sidebar nav button:hover, .sidebar nav button.active { background: #f97316; color: white; }
+.sidebar nav a { display: flex; align-items: center; gap: 10px; width: 100%; padding: 14px 16px; margin-bottom: 8px; background: transparent; color: #9ca3af; border: none; border-radius: 8px; text-align: left; cursor: pointer; font-size: 15px; text-decoration: none; }
+.sidebar nav a:hover, .sidebar nav a.active { background: #f97316; color: white; }
 .main-content { margin-left: 260px; padding: 30px; flex: 1; min-height: 100vh; }
 .main-content h1 { font-size: 28px; margin-bottom: 30px; color: #1f2937; }
 
@@ -117,18 +106,10 @@ tr:hover { background: #f9fafb; }
 /* BADGES */
 .badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
 .badge-success { background: #d1fae5; color: #059669; }
-.badge-warning { background: #fef3c7; color: #d97706; }
-.badge-danger { background: #fee2e2; color: #dc2626; }
 
 /* APPROVAL BUTTONS */
-.btn-approve { background: #10b981; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; margin-right: 8px; font-weight: 600; transition: all 0.3s; }
-.btn-approve:hover { background: #059669; }
-.btn-reject { background: #ef4444; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
-.btn-reject:hover { background: #dc2626; }
-
-/* SECTIONS */
-.section { display: none; }
-.section.active { display: block; }
+.btn-approve { background: #10b981; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; margin-right: 8px; font-weight: 600; }
+.btn-reject { background: #ef4444; color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; }
 
 /* FOOTER */
 .footer { background: #1f2937; color: #9ca3af; text-align: center; padding: 30px 20px; }
@@ -149,7 +130,6 @@ tr:hover { background: #f9fafb; }
 .tagline { font-size: 20px; }
 .nav-links { display: none; }
 .sidebar { width: 100%; position: relative; min-height: auto; }
-.admin-page.active { flex-direction: column; }
 .main-content { margin-left: 0; }
 .stats { grid-template-columns: 1fr; }
 .page-header { flex-direction: column; align-items: flex-start; }
@@ -159,355 +139,29 @@ tr:hover { background: #f9fafb; }
 .filters input, .filters select { width: 100%; }
 }
 </style>
-<script>
-/* ===== ALL JAVASCRIPT LOADS FIRST ===== */
-var listings = [
-{ id: 1, name: 'iPhone 15 Pro Max', price: 1200000, location: 'lagos', category: 'phones', seller: 'John Doe', status: 'approved', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400', description: 'Brand new iPhone 15 Pro Max with 256GB storage. Comes with original charger and box.' },
-{ id: 2, name: 'Toyota Camry 2020', price: 8500000, location: 'abuja', category: 'cars', seller: 'Jane Smith', status: 'approved', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400', description: 'Well maintained 2020 Toyota Camry. Low mileage, full service history available.' },
-{ id: 3, name: 'MacBook Pro M3', price: 2500000, location: 'lagos', category: 'laptops', seller: 'Mike Johnson', status: 'approved', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=400', description: 'Latest MacBook Pro with M3 chip. 16GB RAM, 512GB SSD. Perfect condition.' },
-{ id: 4, name: 'PlayStation 5', price: 450000, location: 'ph', category: 'gaming', seller: 'Sarah Lee', status: 'approved', image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400', description: 'PS5 console with 2 controllers and 3 games included. Barely used.' },
-{ id: 5, name: 'Samsung 65 TV', price: 680000, location: 'kano', category: 'electronics', seller: 'David Brown', status: 'approved', image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400', description: 'Samsung 65 inch 4K Smart TV. Crystal clear display with HDR support.' },
-{ id: 6, name: 'Nike Air Jordan', price: 85000, location: 'lagos', category: 'fashion', seller: 'Chris Wilson', status: 'approved', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400', description: 'Authentic Nike Air Jordan 1 Retro. Size 44, brand new in box.' }
-];
-
-var pendingApprovals = [
-{ id: 7, name: 'iPhone 14 Pro', price: 950000, seller: 'John Doe', date: '2026-05-16' },
-{ id: 8, name: 'Toyota Corolla 2019', price: 5200000, seller: 'Jane Smith', date: '2026-05-16' },
-{ id: 9, name: 'Samsung TV 55', price: 450000, seller: 'Mike Johnson', date: '2026-05-15' }
-];
-
-var cart = [];
-
-function goToPage(pageName) {
-var i;
-var pages = document.getElementsByClassName('page');
-for (i = 0; i < pages.length; i++) {
-pages[i].classList.remove('active');
-}
-var adminPages = document.getElementsByClassName('admin-page');
-for (i = 0; i < adminPages.length; i++) {
-adminPages[i].classList.remove('active');
-}
-var target = document.getElementById(pageName);
-if (target) {
-target.classList.add('active');
-}
-window.scrollTo(0, 0);
-if (pageName === 'listings') renderListings();
-if (pageName === 'admin') renderApprovals();
-if (pageName === 'cart') renderCart();
-return false;
-}
-
-function goToSection(sectionName) {
-var i;
-var sections = document.getElementsByClassName('section');
-for (i = 0; i < sections.length; i++) {
-sections[i].classList.remove('active');
-}
-var target = document.getElementById(sectionName);
-if (target) target.classList.add('active');
-var buttons = document.querySelectorAll('.sidebar button');
-for (i = 0; i < buttons.length; i++) {
-buttons[i].classList.remove('active');
-}
-if (event && event.target) event.target.classList.add('active');
-return false;
-}
-
-function renderListings() {
-var grid = document.getElementById('listings-grid');
-if (!grid) return;
-var catFilter = document.getElementById('category-filter');
-var locFilter = document.getElementById('location-filter');
-var searchInput = document.getElementById('search-input');
-var catValue = 'all';
-var locValue = 'all';
-var searchValue = '';
-if (catFilter) catValue = catFilter.value;
-if (locFilter) locValue = locFilter.value;
-if (searchInput) searchValue = searchInput.value.toLowerCase();
-var html = '';
-var i;
-for (i = 0; i < listings.length; i++) {
-var item = listings[i];
-var catMatch = catValue === 'all' || item.category === catValue;
-var locMatch = locValue === 'all' || item.location === locValue;
-var searchMatch = item.name.toLowerCase().indexOf(searchValue) !== -1;
-if (catMatch && locMatch && searchMatch && item.status === 'approved') {
-var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
-html = html + '<div class="card" onclick="showProductDetail(' + item.id + ')" style="cursor: pointer;">' +
-'<img src="' + item.image + '" alt="' + item.name + '" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=No+Image'">' +
-'<div class="card-body">' +
-'<h3>' + item.name + '</h3>' +
-'<p class="price">N' + item.price.toLocaleString() + '</p>' +
-'<p class="location">' + locDisplay + '</p>' +
-'<span class="category">' + item.category + '</span>' +
-'</div>' +
-'</div>';
-}
-}
-grid.innerHTML = html;
-}
-
-function doFilterListings() {
-renderListings();
-}
-
-function showProductDetail(id) {
-var item = null;
-var i;
-for (i = 0; i < listings.length; i++) {
-if (listings[i].id === id) { item = listings[i]; break; }
-}
-if (!item) return;
-var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
-var content = document.getElementById('product-detail-content');
-if (!content) return;
-content.innerHTML =
-'<div class="product-detail">' +
-'<div class="product-detail-grid">' +
-'<img src="' + item.image + '" alt="' + item.name + '" class="product-detail-image" onerror="this.src='https://via.placeholder.com/600x400?text=No+Image'">' +
-'<div class="product-detail-info">' +
-'<span class="category">' + item.category + '</span>' +
-'<h1>' + item.name + '</h1>' +
-'<p class="price">N' + item.price.toLocaleString() + '</p>' +
-'<p class="location">' + locDisplay + ' | Sold by ' + item.seller + '</p>' +
-'<p class="description">' + item.description + '</p>' +
-'<div style="margin-top: 30px;">' +
-'<button class="btn btn-primary" onclick="addToCart(' + item.id + '); event.stopPropagation();" style="border-radius: 8px;">Add to Cart</button>' +
-'<button class="btn btn-secondary" onclick="alert('Contact ' + item.seller + ' - Coming soon!'); event.stopPropagation();" style="border-radius: 8px; color: #1f2937; border-color: #1f2937;">Contact Seller</button>' +
-'</div>' +
-'</div>' +
-'</div>' +
-'</div>';
-goToPage('product-detail');
-}
-
-function addToCart(id) {
-var item = null;
-var i;
-for (i = 0; i < listings.length; i++) {
-if (listings[i].id === id) { item = listings[i]; break; }
-}
-if (!item) return;
-var existing = null;
-for (i = 0; i < cart.length; i++) {
-if (cart[i].id === id) { existing = cart[i]; break; }
-}
-if (existing) {
-existing.quantity = existing.quantity + 1;
-} else {
-cart.push({ id: item.id, name: item.name, price: item.price, location: item.location, image: item.image, quantity: 1 });
-}
-updateCartBadge();
-alert(item.name + ' added to cart!');
-}
-
-function removeFromCart(id) {
-var newCart = [];
-var i;
-for (i = 0; i < cart.length; i++) {
-if (cart[i].id !== id) newCart.push(cart[i]);
-}
-cart = newCart;
-renderCart();
-updateCartBadge();
-}
-
-function updateCartBadge() {
-var badge = document.getElementById('cart-badge');
-if (!badge) return;
-var total = 0;
-var i;
-for (i = 0; i < cart.length; i++) total = total + cart[i].quantity;
-if (total > 0) {
-badge.innerHTML = total;
-badge.style.display = 'inline';
-} else {
-badge.style.display = 'none';
-}
-}
-
-function renderCart() {
-var container = document.getElementById('cart-items');
-if (!container) return;
-if (cart.length === 0) {
-container.innerHTML = '<div style="text-align: center; padding: 60px; color: #6b7280;"><h3>Your cart is empty</h3><p>Browse listings to add items</p><button class="btn btn-primary" onclick="goToPage('listings')" style="margin-top: 20px;">Browse Listings</button></div>';
-var subEl = document.getElementById('cart-subtotal');
-var totEl = document.getElementById('cart-total');
-if (subEl) subEl.innerHTML = '0';
-if (totEl) totEl.innerHTML = '2,500';
-return;
-}
-var subtotal = 0;
-var i;
-for (i = 0; i < cart.length; i++) subtotal = subtotal + (cart[i].price * cart[i].quantity);
-var delivery = 2500;
-var total = subtotal + delivery;
-var html = '';
-for (i = 0; i < cart.length; i++) {
-var item = cart[i];
-var locDisplay = item.location.charAt(0).toUpperCase() + item.location.slice(1);
-html = html + '<div class="cart-item">' +
-'<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-image" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image'">' +
-'<div class="cart-item-info">' +
-'<h4>' + item.name + '</h4>' +
-'<p class="price">N' + item.price.toLocaleString() + ' x ' + item.quantity + '</p>' +
-'<p style="color: #6b7280; font-size: 13px;">' + locDisplay + '</p>' +
-'</div>' +
-'<button class="btn btn-danger btn-small" onclick="removeFromCart(' + item.id + ')">Remove</button>' +
-'</div>';
-}
-container.innerHTML = html;
-var subEl = document.getElementById('cart-subtotal');
-var totEl = document.getElementById('cart-total');
-if (subEl) subEl.innerHTML = subtotal.toLocaleString();
-if (totEl) totEl.innerHTML = total.toLocaleString();
-}
-
-function doHandleSell(event) {
-event.preventDefault();
-var nameInput = document.getElementById('item-name');
-var priceInput = document.getElementById('item-price');
-var catInput = document.getElementById('item-category');
-var locInput = document.getElementById('item-location');
-var descInput = document.getElementById('item-desc');
-if (!nameInput || !priceInput || !catInput || !locInput) {
-alert('Please fill all required fields');
-return;
-}
-var newItem = {
-id: Date.now(),
-name: nameInput.value,
-price: parseInt(priceInput.value),
-category: catInput.value,
-location: locInput.value,
-description: (descInput && descInput.value) ? descInput.value : 'No description provided',
-seller: 'Current User',
-status: 'pending',
-image: 'https://via.placeholder.com/300x180?text=' + encodeURIComponent(nameInput.value)
-};
-pendingApprovals.push({
-id: newItem.id,
-name: newItem.name,
-price: newItem.price,
-seller: newItem.seller,
-date: new Date().toISOString().split('T')[0]
-});
-listings.push(newItem);
-alert('Item submitted for approval! It will be visible once approved by admin.');
-event.target.reset();
-goToPage('listings');
-updateAdminStats();
-}
-
-function doHandleLogin(event) {
-event.preventDefault();
-alert('Login successful! Welcome back.');
-goToPage('home');
-}
-
-function doHandleRegister(event) {
-event.preventDefault();
-alert('Account created successfully! Please login.');
-goToPage('login');
-}
-
-function renderApprovals() {
-var tbody = document.getElementById('approvals-list');
-if (!tbody) return;
-var html = '';
-var i;
-for (i = 0; i < pendingApprovals.length; i++) {
-var item = pendingApprovals[i];
-html = html + '<tr>' +
-'<td>' + item.name + '</td>' +
-'<td>' + item.seller + '</td>' +
-'<td>N' + item.price.toLocaleString() + '</td>' +
-'<td>' + item.date + '</td>' +
-'<td>' +
-'<button class="btn-approve" onclick="approveItem(' + item.id + ')">Approve</button>' +
-'<button class="btn-reject" onclick="rejectItem(' + item.id + ')">Reject</button>' +
-'</td>' +
-'</tr>';
-}
-tbody.innerHTML = html;
-updateAdminStats();
-}
-
-function approveItem(id) {
-var i;
-for (i = 0; i < listings.length; i++) {
-if (listings[i].id === id) { listings[i].status = 'approved'; break; }
-}
-var newPending = [];
-for (i = 0; i < pendingApprovals.length; i++) {
-if (pendingApprovals[i].id !== id) newPending.push(pendingApprovals[i]);
-}
-pendingApprovals = newPending;
-renderApprovals();
-alert('Item approved and is now live!');
-}
-
-function rejectItem(id) {
-var newListings = [];
-var i;
-for (i = 0; i < listings.length; i++) {
-if (listings[i].id !== id) newListings.push(listings[i]);
-}
-listings = newListings;
-var newPending = [];
-for (i = 0; i < pendingApprovals.length; i++) {
-if (pendingApprovals[i].id !== id) newPending.push(pendingApprovals[i]);
-}
-pendingApprovals = newPending;
-renderApprovals();
-alert('Item rejected and removed.');
-}
-
-function updateAdminStats() {
-var listingsEl = document.getElementById('stat-listings');
-var pendingEl = document.getElementById('stat-pending');
-if (listingsEl) {
-var count = 0;
-var i;
-for (i = 0; i < listings.length; i++) {
-if (listings[i].status === 'approved') count = count + 1;
-}
-listingsEl.innerHTML = count.toLocaleString();
-}
-if (pendingEl) pendingEl.innerHTML = pendingApprovals.length;
-}
-</script>
 </head>
 <body>
-
-<!-- NAVIGATION -->
 <nav class="navbar">
 <div class="nav-brand">
-<a href="#" onclick="return goToPage('home')">NijaSwap</a>
+<a href="index.html">NijaSwap</a>
 </div>
 <div class="nav-links">
-<a href="#" onclick="return goToPage('home')">Home</a>
-<a href="#" onclick="return goToPage('listings')">Listings</a>
-<a href="#" onclick="return goToPage('sell')">Sell Item</a>
-<a href="#" onclick="return goToPage('cart')">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
-<a href="#" onclick="return goToPage('admin')">Admin</a>
-<a href="#" onclick="return goToPage('login')" class="btn-login">Login</a>
+<a href="index.html">Home</a>
+<a href="listings.html">Listings</a>
+<a href="sell.html">Sell Item</a>
+<a href="cart.html">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
+<a href="admin.html">Admin</a>
+<a href="login.html" class="btn-login">Login</a>
 </div>
 </nav>
-
-<!-- HOME PAGE -->
-<div id="home" class="page active">
 <section class="hero">
 <div class="hero-content">
 <h1>NijaSwap</h1>
 <p class="tagline">Buy & Sell in Nigeria</p>
 <p class="brand">Under RadiantWaves Media</p>
 <div class="hero-buttons">
-<button class="btn btn-primary" onclick="goToPage('listings')">Browse Listings</button>
-<button class="btn btn-secondary" onclick="goToPage('sell')">Sell Something</button>
+<a href="listings.html" class="btn btn-primary">Browse Listings</a>
+<a href="sell.html" class="btn btn-secondary">Sell Something</a>
 </div>
 <div class="features">
 <span>[OK] Verified Sellers</span>
@@ -517,245 +171,11 @@ if (pendingEl) pendingEl.innerHTML = pendingApprovals.length;
 </div>
 </div>
 </section>
-</div>
-
-<!-- LISTINGS PAGE -->
-<div id="listings" class="page">
-<div class="container">
-<div class="page-header">
-<h2>All Listings</h2>
-<div class="filters">
-<input type="text" id="search-input" placeholder="Search items..." onkeyup="doFilterListings()">
-<select id="category-filter" onchange="doFilterListings()">
-<option value="all">All Categories</option>
-<option value="phones">Phones</option>
-<option value="cars">Cars</option>
-<option value="laptops">Laptops</option>
-<option value="gaming">Gaming</option>
-<option value="electronics">Electronics</option>
-<option value="fashion">Fashion</option>
-</select>
-<select id="location-filter" onchange="doFilterListings()">
-<option value="all">All Locations</option>
-<option value="lagos">Lagos</option>
-<option value="abuja">Abuja</option>
-<option value="ph">Port Harcourt</option>
-<option value="kano">Kano</option>
-</select>
-</div>
-</div>
-<div class="grid" id="listings-grid"></div>
-</div>
-</div>
-
-<!-- PRODUCT DETAIL PAGE -->
-<div id="product-detail" class="page">
-<div class="container">
-<button class="btn btn-small" style="margin-top:80px; margin-bottom:20px; background:#1f2937; color:white;" onclick="goToPage('listings')">Back to Listings</button>
-<div id="product-detail-content"></div>
-</div>
-</div>
-
-<!-- SELL ITEM PAGE -->
-<div id="sell" class="page">
-<div class="container">
-<h2 style="text-align: center; margin-top: 80px; color: #1f2937;">Sell Your Item</h2>
-<form class="sell-form" onsubmit="doHandleSell(event)">
-<div class="form-group">
-<label>Item Name</label>
-<input type="text" id="item-name" required placeholder="e.g. iPhone 15 Pro Max">
-</div>
-<div class="form-group">
-<label>Price</label>
-<input type="number" id="item-price" required placeholder="e.g. 1200000">
-</div>
-<div class="form-group">
-<label>Category</label>
-<select id="item-category" required>
-<option value="">Select Category</option>
-<option value="phones">Phones</option>
-<option value="cars">Cars</option>
-<option value="laptops">Laptops</option>
-<option value="gaming">Gaming</option>
-<option value="electronics">Electronics</option>
-<option value="fashion">Fashion</option>
-</select>
-</div>
-<div class="form-group">
-<label>Location</label>
-<select id="item-location" required>
-<option value="">Select Location</option>
-<option value="lagos">Lagos</option>
-<option value="abuja">Abuja</option>
-<option value="ph">Port Harcourt</option>
-<option value="kano">Kano</option>
-</select>
-</div>
-<div class="form-group">
-<label>Description</label>
-<textarea id="item-desc" rows="4" placeholder="Describe your item..."></textarea>
-</div>
-<button type="submit" class="btn btn-primary">Submit Listing</button>
-</form>
-</div>
-</div>
-
-<!-- CART PAGE -->
-<div id="cart" class="page">
-<div class="container cart-page">
-<h2 style="margin-bottom: 30px; color: #1f2937;">Shopping Cart</h2>
-<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
-<div id="cart-items"></div>
-<div class="cart-summary">
-<h3>Order Summary</h3>
-<div class="cart-summary-row"><span>Subtotal</span><span id="cart-subtotal">0</span></div>
-<div class="cart-summary-row"><span>Delivery Fee</span><span>2,500</span></div>
-<div class="cart-summary-total"><span>Total</span><span id="cart-total">2,500</span></div>
-<button class="btn btn-primary btn-full" style="margin-top: 20px; border-radius: 8px;" onclick="alert('Checkout coming soon!')">Proceed to Checkout</button>
-</div>
-</div>
-</div>
-</div>
-
-<!-- LOGIN PAGE -->
-<div id="login" class="page">
-<div class="container auth-container">
-<div class="auth-box">
-<h2>Welcome Back</h2>
-<form onsubmit="doHandleLogin(event)">
-<div class="form-group">
-<label>Email</label>
-<input type="email" required placeholder="your@email.com">
-</div>
-<div class="form-group">
-<label>Password</label>
-<input type="password" required placeholder="********">
-</div>
-<button type="submit" class="btn btn-primary btn-full">Login</button>
-<p class="auth-switch">Don't have an account? <a href="#" onclick="return goToPage('register')">Register</a></p>
-</form>
-</div>
-</div>
-</div>
-
-<!-- REGISTER PAGE -->
-<div id="register" class="page">
-<div class="container auth-container">
-<div class="auth-box">
-<h2>Create Account</h2>
-<form onsubmit="doHandleRegister(event)">
-<div class="form-group">
-<label>Full Name</label>
-<input type="text" required placeholder="John Doe">
-</div>
-<div class="form-group">
-<label>Email</label>
-<input type="email" required placeholder="your@email.com">
-</div>
-<div class="form-group">
-<label>Phone</label>
-<input type="tel" required placeholder="+234 800 000 0000">
-</div>
-<div class="form-group">
-<label>Password</label>
-<input type="password" required placeholder="********">
-</div>
-<button type="submit" class="btn btn-primary btn-full">Register</button>
-<p class="auth-switch">Already have an account? <a href="#" onclick="return goToPage('login')">Login</a></p>
-</form>
-</div>
-</div>
-</div>
-
-<!-- ADMIN DASHBOARD -->
-<div id="admin" class="admin-page">
-<aside class="sidebar">
-<h2>NijaSwap Admin</h2>
-<nav>
-<button class="active" onclick="return goToSection('dashboard')">Dashboard</button>
-<button onclick="return goToSection('approvals')">Pending Approvals</button>
-<button onclick="return goToSection('users')">Users</button>
-<button onclick="return goToSection('payments')">Payments</button>
-<button onclick="return goToSection('settings')">Settings</button>
-</nav>
-</aside>
-<main class="main-content">
-<div id="dashboard" class="section active">
-<h1>Dashboard Overview</h1>
-<div class="stats">
-<div class="stat-card"><p>Total Users</p><h3 id="stat-users">1,247</h3></div>
-<div class="stat-card"><p>Total Listings</p><h3 id="stat-listings">6</h3></div>
-<div class="stat-card"><p>Pending Approval</p><h3 id="stat-pending">3</h3></div>
-<div class="stat-card"><p>Total Revenue</p><h3>2.4M</h3></div>
-</div>
-<div style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-<h3 style="margin-bottom: 20px; color: #1f2937;">Recent Activity</h3>
-<table>
-<thead><tr><th>Action</th><th>User</th><th>Time</th></tr></thead>
-<tbody>
-<tr><td>New listing submitted</td><td>John Doe</td><td>2 mins ago</td></tr>
-<tr><td>Payment received</td><td>Jane Smith</td><td>15 mins ago</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="approvals" class="section">
-<h1>Pending Approvals</h1>
-<table>
-<thead><tr><th>Item</th><th>Seller</th><th>Price</th><th>Date</th><th>Actions</th></tr></thead>
-<tbody id="approvals-list"></tbody>
-</table>
-</div>
-<div id="users" class="section">
-<h1>User Management</h1>
-<table>
-<thead><tr><th>Name</th><th>Email</th><th>Listings</th><th>Status</th><th>Actions</th></tr></thead>
-<tbody>
-<tr><td>John Doe</td><td>john@example.com</td><td>5</td><td><span class="badge badge-success">Active</span></td><td><button class="btn-small">View</button> <button class="btn-small btn-danger">Ban</button></td></tr>
-</tbody>
-</table>
-</div>
-<div id="payments" class="section">
-<h1>Payment Tracking</h1>
-<table>
-<thead><tr><th>ID</th><th>Buyer</th><th>Seller</th><th>Amount</th><th>Status</th></tr></thead>
-<tbody>
-<tr><td>#PAY-001</td><td>Buyer A</td><td>Seller B</td><td>120,000</td><td><span class="badge badge-success">Completed</span></td></tr>
-</tbody>
-</table>
-</div>
-<div id="settings" class="section">
-<h1>Platform Settings</h1>
-<div class="settings-grid">
-<div class="setting-card">
-<h3>Commission Rate</h3>
-<input type="number" value="5" class="form-control"> %
-<button class="btn btn-primary btn-small">Save</button>
-</div>
-<div class="setting-card">
-<h3>Featured Listing Price</h3>
-<input type="number" value="5000" class="form-control"> N
-<button class="btn btn-primary btn-small">Save</button>
-</div>
-</div>
-</div>
-</main>
-</div>
-
-<!-- FOOTER -->
 <footer class="footer">
 <div class="container">
 <p>2026 NijaSwap by RadiantWaves Media. All rights reserved.</p>
 <p>Gateway to your world news, connecting you to the world</p>
 </div>
 </footer>
-
-<script>
-/* INIT - runs after DOM is ready */
-renderListings();
-renderApprovals();
-updateAdminStats();
-updateCartBadge();
-</script>
 </body>
 </html>
