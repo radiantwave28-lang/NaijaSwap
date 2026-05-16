@@ -168,15 +168,15 @@
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-brand">
-            <a onclick="showPage('home')">NijaSwap</a>
+            <a onclick="window.showPage('home')">NijaSwap</a>
         </div>
         <div class="nav-links">
-            <a onclick="showPage('home')">Home</a>
-            <a onclick="showPage('listings')">Listings</a>
-            <a onclick="showPage('sell')">Sell Item</a>
-            <a onclick="showPage('cart')">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
-            <a onclick="showPage('admin')">Admin</a>
-            <a onclick="showPage('login')" class="btn-login">Login</a>
+            <a onclick="window.showPage('home')">Home</a>
+            <a onclick="window.showPage('listings')">Listings</a>
+            <a onclick="window.showPage('sell')">Sell Item</a>
+            <a onclick="window.showPage('cart')">Cart<span id="cart-badge" class="cart-badge" style="display:none;">0</span></a>
+            <a onclick="window.showPage('admin')">Admin</a>
+            <a onclick="window.showPage('login')" class="btn-login">Login</a>
         </div>
     </nav>
 
@@ -188,8 +188,8 @@
                 <p class="tagline">Buy & Sell in Nigeria</p>
                 <p class="brand">Under RadiantWaves Media</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="showPage('listings')">Browse Listings</button>
-                    <button class="btn btn-secondary" onclick="showPage('sell')">Sell Something</button>
+                    <button class="btn btn-primary" onclick="window.showPage('listings')">Browse Listings</button>
+                    <button class="btn btn-secondary" onclick="window.showPage('sell')">Sell Something</button>
                 </div>
                 <div class="features">
                     <span>✅ Verified Sellers</span>
@@ -207,8 +207,8 @@
             <div class="page-header">
                 <h2>All Listings</h2>
                 <div class="filters">
-                    <input type="text" id="search-input" placeholder="🔍 Search items..." onkeyup="filterListings()">
-                    <select id="category-filter" onchange="filterListings()">
+                    <input type="text" id="search-input" placeholder="🔍 Search items..." onkeyup="window.filterListings()">
+                    <select id="category-filter" onchange="window.filterListings()">
                         <option value="all">All Categories</option>
                         <option value="phones">Phones</option>
                         <option value="cars">Cars</option>
@@ -217,7 +217,7 @@
                         <option value="electronics">Electronics</option>
                         <option value="fashion">Fashion</option>
                     </select>
-                    <select id="location-filter" onchange="filterListings()">
+                    <select id="location-filter" onchange="window.filterListings()">
                         <option value="all">All Locations</option>
                         <option value="lagos">Lagos</option>
                         <option value="abuja">Abuja</option>
@@ -233,7 +233,7 @@
     <!-- PRODUCT DETAIL PAGE -->
     <div id="product-detail" class="page">
         <div class="container">
-            <button class="btn btn-small" style="margin-top:80px; margin-bottom:20px; background:#1f2937; color:white;" onclick="showPage('listings')">← Back to Listings</button>
+            <button class="btn btn-small" style="margin-top:80px; margin-bottom:20px; background:#1f2937; color:white;" onclick="window.showPage('listings')">← Back to Listings</button>
             <div id="product-detail-content"></div>
         </div>
     </div>
@@ -242,7 +242,7 @@
     <div id="sell" class="page">
         <div class="container">
             <h2 style="text-align: center; margin-top: 80px; color: #1f2937;">Sell Your Item</h2>
-            <form class="sell-form" onsubmit="handleSell(event)">
+            <form class="sell-form" onsubmit="window.handleSell(event)">
                 <div class="form-group">
                     <label>Item Name</label>
                     <input type="text" id="item-name" required placeholder="e.g. iPhone 15 Pro Max">
@@ -304,7 +304,7 @@
         <div class="container auth-container">
             <div class="auth-box">
                 <h2>Welcome Back</h2>
-                <form onsubmit="handleLogin(event)">
+                <form onsubmit="window.handleLogin(event)">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" required placeholder="your@email.com">
@@ -314,7 +314,7 @@
                         <input type="password" required placeholder="••••••••">
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Login</button>
-                    <p class="auth-switch">Don't have an account? <a onclick="showPage('register')">Register</a></p>
+                    <p class="auth-switch">Don't have an account? <a onclick="window.showPage('register')">Register</a></p>
                 </form>
             </div>
         </div>
@@ -325,7 +325,7 @@
         <div class="container auth-container">
             <div class="auth-box">
                 <h2>Create Account</h2>
-                <form onsubmit="handleRegister(event)">
+                <form onsubmit="window.handleRegister(event)">
                     <div class="form-group">
                         <label>Full Name</label>
                         <input type="text" required placeholder="John Doe">
@@ -343,7 +343,7 @@
                         <input type="password" required placeholder="••••••••">
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">Register</button>
-                    <p class="auth-switch">Already have an account? <a onclick="showPage('login')">Login</a></p>
+                    <p class="auth-switch">Already have an account? <a onclick="window.showPage('login')">Login</a></p>
                 </form>
             </div>
         </div>
@@ -354,11 +354,11 @@
         <aside class="sidebar">
             <h2>NijaSwap Admin</h2>
             <nav>
-                <button class="active" onclick="showSection('dashboard')">📊 Dashboard</button>
-                <button onclick="showSection('approvals')">⏳ Pending Approvals</button>
-                <button onclick="showSection('users')">👥 Users</button>
-                <button onclick="showSection('payments')">💳 Payments</button>
-                <button onclick="showSection('settings')">⚙️ Settings</button>
+                <button class="active" onclick="window.showSection('dashboard')">📊 Dashboard</button>
+                <button onclick="window.showSection('approvals')">⏳ Pending Approvals</button>
+                <button onclick="window.showSection('users')">👥 Users</button>
+                <button onclick="window.showSection('payments')">💳 Payments</button>
+                <button onclick="window.showSection('settings')">⚙️ Settings</button>
             </nav>
         </aside>
         <main class="main-content">
@@ -433,261 +433,266 @@
     </footer>
 
     <script>
-        // ===== DATA =====
-        let listings = [
-            { id: 1, name: 'iPhone 15 Pro Max', price: 1200000, location: 'lagos', category: 'phones', seller: 'John Doe', status: 'approved', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400', description: 'Brand new iPhone 15 Pro Max with 256GB storage. Comes with original charger and box.' },
-            { id: 2, name: 'Toyota Camry 2020', price: 8500000, location: 'abuja', category: 'cars', seller: 'Jane Smith', status: 'approved', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400', description: 'Well maintained 2020 Toyota Camry. Low mileage, full service history available.' },
-            { id: 3, name: 'MacBook Pro M3', price: 2500000, location: 'lagos', category: 'laptops', seller: 'Mike Johnson', status: 'approved', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=400', description: 'Latest MacBook Pro with M3 chip. 16GB RAM, 512GB SSD. Perfect condition.' },
-            { id: 4, name: 'PlayStation 5', price: 450000, location: 'ph', category: 'gaming', seller: 'Sarah Lee', status: 'approved', image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400', description: 'PS5 console with 2 controllers and 3 games included. Barely used.' },
-            { id: 5, name: 'Samsung 65" TV', price: 680000, location: 'kano', category: 'electronics', seller: 'David Brown', status: 'approved', image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400', description: 'Samsung 65 inch 4K Smart TV. Crystal clear display with HDR support.' },
-            { id: 6, name: 'Nike Air Jordan', price: 85000, location: 'lagos', category: 'fashion', seller: 'Chris Wilson', status: 'approved', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400', description: 'Authentic Nike Air Jordan 1 Retro. Size 44, brand new in box.' }
-        ];
+        (function() {
+            // ===== DATA =====
+            let listings = [
+                { id: 1, name: 'iPhone 15 Pro Max', price: 1200000, location: 'lagos', category: 'phones', seller: 'John Doe', status: 'approved', image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400', description: 'Brand new iPhone 15 Pro Max with 256GB storage. Comes with original charger and box.' },
+                { id: 2, name: 'Toyota Camry 2020', price: 8500000, location: 'abuja', category: 'cars', seller: 'Jane Smith', status: 'approved', image: 'https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400', description: 'Well maintained 2020 Toyota Camry. Low mileage, full service history available.' },
+                { id: 3, name: 'MacBook Pro M3', price: 2500000, location: 'lagos', category: 'laptops', seller: 'Mike Johnson', status: 'approved', image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=400', description: 'Latest MacBook Pro with M3 chip. 16GB RAM, 512GB SSD. Perfect condition.' },
+                { id: 4, name: 'PlayStation 5', price: 450000, location: 'ph', category: 'gaming', seller: 'Sarah Lee', status: 'approved', image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400', description: 'PS5 console with 2 controllers and 3 games included. Barely used.' },
+                { id: 5, name: 'Samsung 65" TV', price: 680000, location: 'kano', category: 'electronics', seller: 'David Brown', status: 'approved', image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400', description: 'Samsung 65 inch 4K Smart TV. Crystal clear display with HDR support.' },
+                { id: 6, name: 'Nike Air Jordan', price: 85000, location: 'lagos', category: 'fashion', seller: 'Chris Wilson', status: 'approved', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400', description: 'Authentic Nike Air Jordan 1 Retro. Size 44, brand new in box.' }
+            ];
 
-        let pendingApprovals = [
-            { id: 7, name: 'iPhone 14 Pro', price: 950000, seller: 'John Doe', date: '2026-05-16' },
-            { id: 8, name: 'Toyota Corolla 2019', price: 5200000, seller: 'Jane Smith', date: '2026-05-16' },
-            { id: 9, name: 'Samsung TV 55"', price: 450000, seller: 'Mike Johnson', date: '2026-05-15' }
-        ];
+            let pendingApprovals = [
+                { id: 7, name: 'iPhone 14 Pro', price: 950000, seller: 'John Doe', date: '2026-05-16' },
+                { id: 8, name: 'Toyota Corolla 2019', price: 5200000, seller: 'Jane Smith', date: '2026-05-16' },
+                { id: 9, name: 'Samsung TV 55"', price: 450000, seller: 'Mike Johnson', date: '2026-05-15' }
+            ];
 
-        let cart = [];
+            let cart = [];
 
-        // ===== NAVIGATION =====
-        function showPage(pageName) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.admin-page').forEach(p => p.classList.remove('active'));
-            const page = document.getElementById(pageName);
-            if (page) {
-                page.classList.add('active');
-                window.scrollTo(0, 0);
-            }
-            if (pageName === 'listings') renderListings();
-            if (pageName === 'admin') renderApprovals();
-            if (pageName === 'cart') renderCart();
-        }
-
-        function showSection(sectionName) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            const section = document.getElementById(sectionName);
-            if (section) section.classList.add('active');
-            document.querySelectorAll('.sidebar button').forEach(b => b.classList.remove('active'));
-            if (event && event.target) event.target.classList.add('active');
-        }
-
-        // ===== LISTINGS =====
-        function renderListings() {
-            const grid = document.getElementById('listings-grid');
-            const catFilter = document.getElementById('category-filter')?.value || 'all';
-            const locFilter = document.getElementById('location-filter')?.value || 'all';
-            const search = document.getElementById('search-input')?.value.toLowerCase() || '';
-
-            const filtered = listings.filter(item => {
-                const catMatch = catFilter === 'all' || item.category === catFilter;
-                const locMatch = locFilter === 'all' || item.location === locFilter;
-                const searchMatch = item.name.toLowerCase().includes(search);
-                return catMatch && locMatch && searchMatch && item.status === 'approved';
-            });
-
-            grid.innerHTML = filtered.map(item => `
-                <div class="card" onclick="showProductDetail(${item.id})" style="cursor: pointer;">
-                    <img src="${item.image}" alt="${item.name}" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=No+Image'">
-                    <div class="card-body">
-                        <h3>${item.name}</h3>
-                        <p class="price">₦${item.price.toLocaleString()}</p>
-                        <p class="location">📍 ${item.location.charAt(0).toUpperCase() + item.location.slice(1)}</p>
-                        <span class="category">${item.category}</span>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterListings() {
-            renderListings();
-        }
-
-        // ===== PRODUCT DETAIL =====
-        function showProductDetail(id) {
-            const item = listings.find(l => l.id === id);
-            if (!item) return;
-
-            const content = document.getElementById('product-detail-content');
-            content.innerHTML = `
-                <div class="product-detail">
-                    <div class="product-detail-grid">
-                        <img src="${item.image}" alt="${item.name}" class="product-detail-image" onerror="this.src='https://via.placeholder.com/600x400?text=No+Image'">
-                        <div class="product-detail-info">
-                            <span class="category">${item.category}</span>
-                            <h1>${item.name}</h1>
-                            <p class="price">₦${item.price.toLocaleString()}</p>
-                            <p class="location">📍 ${item.location.charAt(0).toUpperCase() + item.location.slice(1)} | Sold by ${item.seller}</p>
-                            <p class="description">${item.description}</p>
-                            <div style="margin-top: 30px;">
-                                <button class="btn btn-primary" onclick="addToCart(${item.id}); event.stopPropagation();" style="border-radius: 8px;">Add to Cart</button>
-                                <button class="btn btn-secondary" onclick="alert('Contact ${item.seller} - Coming soon!'); event.stopPropagation();" style="border-radius: 8px; color: #1f2937; border-color: #1f2937;">Contact Seller</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            showPage('product-detail');
-        }
-
-        // ===== CART =====
-        function addToCart(id) {
-            const item = listings.find(l => l.id === id);
-            if (!item) return;
-
-            const existing = cart.find(c => c.id === id);
-            if (existing) {
-                existing.quantity++;
-            } else {
-                cart.push({ ...item, quantity: 1 });
-            }
-
-            updateCartBadge();
-            alert(`${item.name} added to cart!`);
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(c => c.id !== id);
-            renderCart();
-            updateCartBadge();
-        }
-
-        function updateCartBadge() {
-            const badge = document.getElementById('cart-badge');
-            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-            if (total > 0) {
-                badge.textContent = total;
-                badge.style.display = 'inline';
-            } else {
-                badge.style.display = 'none';
-            }
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                container.innerHTML = '<div style="text-align: center; padding: 60px; color: #6b7280;"><h3>Your cart is empty</h3><p>Browse listings to add items</p><button class="btn btn-primary" onclick="showPage('listings')" style="margin-top: 20px;">Browse Listings</button></div>';
-                document.getElementById('cart-subtotal').textContent = '₦0';
-                document.getElementById('cart-total').textContent = '₦2,500';
-                return;
-            }
-
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const delivery = 2500;
-            const total = subtotal + delivery;
-
-            container.innerHTML = cart.map(item => `
-                <div class="cart-item">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image'">
-                    <div class="cart-item-info">
-                        <h4>${item.name}</h4>
-                        <p class="price">₦${item.price.toLocaleString()} x ${item.quantity}</p>
-                        <p style="color: #6b7280; font-size: 13px;">📍 ${item.location.charAt(0).toUpperCase() + item.location.slice(1)}</p>
-                    </div>
-                    <button class="btn btn-danger btn-small" onclick="removeFromCart(${item.id})">Remove</button>
-                </div>
-            `).join('');
-
-            document.getElementById('cart-subtotal').textContent = '₦' + subtotal.toLocaleString();
-            document.getElementById('cart-total').textContent = '₦' + total.toLocaleString();
-        }
-
-        // ===== SELL FORM =====
-        function handleSell(event) {
-            event.preventDefault();
-            const newItem = {
-                id: Date.now(),
-                name: document.getElementById('item-name').value,
-                price: parseInt(document.getElementById('item-price').value),
-                category: document.getElementById('item-category').value,
-                location: document.getElementById('item-location').value,
-                description: document.getElementById('item-desc').value || 'No description provided',
-                seller: 'Current User',
-                status: 'pending',
-                image: 'https://via.placeholder.com/300x180?text=' + encodeURIComponent(document.getElementById('item-name').value)
+            // ===== NAVIGATION =====
+            window.showPage = function(pageName) {
+                document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+                document.querySelectorAll('.admin-page').forEach(function(p) { p.classList.remove('active'); });
+                var page = document.getElementById(pageName);
+                if (page) {
+                    page.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+                if (pageName === 'listings') renderListings();
+                if (pageName === 'admin') renderApprovals();
+                if (pageName === 'cart') renderCart();
             };
 
-            pendingApprovals.push({
-                id: newItem.id,
-                name: newItem.name,
-                price: newItem.price,
-                seller: newItem.seller,
-                date: new Date().toISOString().split('T')[0]
+            window.showSection = function(sectionName) {
+                document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+                var section = document.getElementById(sectionName);
+                if (section) section.classList.add('active');
+                document.querySelectorAll('.sidebar button').forEach(function(b) { b.classList.remove('active'); });
+                if (event && event.target) event.target.classList.add('active');
+            };
+
+            // ===== LISTINGS =====
+            window.renderListings = function() {
+                var grid = document.getElementById('listings-grid');
+                var catFilter = document.getElementById('category-filter');
+                var locFilter = document.getElementById('location-filter');
+                var searchInput = document.getElementById('search-input');
+
+                var catValue = catFilter ? catFilter.value : 'all';
+                var locValue = locFilter ? locFilter.value : 'all';
+                var searchValue = searchInput ? searchInput.value.toLowerCase() : '';
+
+                var filtered = listings.filter(function(item) {
+                    var catMatch = catValue === 'all' || item.category === catValue;
+                    var locMatch = locValue === 'all' || item.location === locValue;
+                    var searchMatch = item.name.toLowerCase().indexOf(searchValue) !== -1;
+                    return catMatch && locMatch && searchMatch && item.status === 'approved';
+                });
+
+                grid.innerHTML = filtered.map(function(item) {
+                    return '<div class="card" onclick="window.showProductDetail(' + item.id + ')" style="cursor: pointer;">' +
+                        '<img src="' + item.image + '" alt="' + item.name + '" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=No+Image'">' +
+                        '<div class="card-body">' +
+                            '<h3>' + item.name + '</h3>' +
+                            '<p class="price">₦' + item.price.toLocaleString() + '</p>' +
+                            '<p class="location">📍 ' + item.location.charAt(0).toUpperCase() + item.location.slice(1) + '</p>' +
+                            '<span class="category">' + item.category + '</span>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+            };
+
+            window.filterListings = function() {
+                renderListings();
+            };
+
+            // ===== PRODUCT DETAIL =====
+            window.showProductDetail = function(id) {
+                var item = listings.find(function(l) { return l.id === id; });
+                if (!item) return;
+
+                var content = document.getElementById('product-detail-content');
+                content.innerHTML = 
+                    '<div class="product-detail">' +
+                        '<div class="product-detail-grid">' +
+                            '<img src="' + item.image + '" alt="' + item.name + '" class="product-detail-image" onerror="this.src='https://via.placeholder.com/600x400?text=No+Image'">' +
+                            '<div class="product-detail-info">' +
+                                '<span class="category">' + item.category + '</span>' +
+                                '<h1>' + item.name + '</h1>' +
+                                '<p class="price">₦' + item.price.toLocaleString() + '</p>' +
+                                '<p class="location">📍 ' + item.location.charAt(0).toUpperCase() + item.location.slice(1) + ' | Sold by ' + item.seller + '</p>' +
+                                '<p class="description">' + item.description + '</p>' +
+                                '<div style="margin-top: 30px;">' +
+                                    '<button class="btn btn-primary" onclick="window.addToCart(' + item.id + '); event.stopPropagation();" style="border-radius: 8px;">Add to Cart</button>' +
+                                    '<button class="btn btn-secondary" onclick="alert('Contact ' + item.seller + ' - Coming soon!'); event.stopPropagation();" style="border-radius: 8px; color: #1f2937; border-color: #1f2937;">Contact Seller</button>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                showPage('product-detail');
+            };
+
+            // ===== CART =====
+            window.addToCart = function(id) {
+                var item = listings.find(function(l) { return l.id === id; });
+                if (!item) return;
+
+                var existing = cart.find(function(c) { return c.id === id; });
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    cart.push(Object.assign({}, item, { quantity: 1 }));
+                }
+
+                updateCartBadge();
+                alert(item.name + ' added to cart!');
+            };
+
+            window.removeFromCart = function(id) {
+                cart = cart.filter(function(c) { return c.id !== id; });
+                renderCart();
+                updateCartBadge();
+            };
+
+            function updateCartBadge() {
+                var badge = document.getElementById('cart-badge');
+                var total = cart.reduce(function(sum, item) { return sum + item.quantity; }, 0);
+                if (total > 0) {
+                    badge.textContent = total;
+                    badge.style.display = 'inline';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+
+            window.renderCart = function() {
+                var container = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; padding: 60px; color: #6b7280;"><h3>Your cart is empty</h3><p>Browse listings to add items</p><button class="btn btn-primary" onclick="window.showPage('listings')" style="margin-top: 20px;">Browse Listings</button></div>';
+                    document.getElementById('cart-subtotal').textContent = '₦0';
+                    document.getElementById('cart-total').textContent = '₦2,500';
+                    return;
+                }
+
+                var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.quantity); }, 0);
+                var delivery = 2500;
+                var total = subtotal + delivery;
+
+                container.innerHTML = cart.map(function(item) {
+                    return '<div class="cart-item">' +
+                        '<img src="' + item.image + '" alt="' + item.name + '" class="cart-item-image" onerror="this.src='https://via.placeholder.com/100x100?text=No+Image'">' +
+                        '<div class="cart-item-info">' +
+                            '<h4>' + item.name + '</h4>' +
+                            '<p class="price">₦' + item.price.toLocaleString() + ' x ' + item.quantity + '</p>' +
+                            '<p style="color: #6b7280; font-size: 13px;">📍 ' + item.location.charAt(0).toUpperCase() + item.location.slice(1) + '</p>' +
+                        '</div>' +
+                        '<button class="btn btn-danger btn-small" onclick="window.removeFromCart(' + item.id + ')">Remove</button>' +
+                    '</div>';
+                }).join('');
+
+                document.getElementById('cart-subtotal').textContent = '₦' + subtotal.toLocaleString();
+                document.getElementById('cart-total').textContent = '₦' + total.toLocaleString();
+            };
+
+            // ===== SELL FORM =====
+            window.handleSell = function(event) {
+                event.preventDefault();
+                var newItem = {
+                    id: Date.now(),
+                    name: document.getElementById('item-name').value,
+                    price: parseInt(document.getElementById('item-price').value),
+                    category: document.getElementById('item-category').value,
+                    location: document.getElementById('item-location').value,
+                    description: document.getElementById('item-desc').value || 'No description provided',
+                    seller: 'Current User',
+                    status: 'pending',
+                    image: 'https://via.placeholder.com/300x180?text=' + encodeURIComponent(document.getElementById('item-name').value)
+                };
+
+                pendingApprovals.push({
+                    id: newItem.id,
+                    name: newItem.name,
+                    price: newItem.price,
+                    seller: newItem.seller,
+                    date: new Date().toISOString().split('T')[0]
+                });
+
+                listings.push(newItem);
+
+                alert('Item submitted for approval! It will be visible once approved by admin.');
+                event.target.reset();
+                showPage('listings');
+                updateAdminStats();
+            };
+
+            // ===== AUTH =====
+            window.handleLogin = function(event) {
+                event.preventDefault();
+                alert('Login successful! Welcome back.');
+                showPage('home');
+            };
+
+            window.handleRegister = function(event) {
+                event.preventDefault();
+                alert('Account created successfully! Please login.');
+                showPage('login');
+            };
+
+            // ===== ADMIN =====
+            window.renderApprovals = function() {
+                var tbody = document.getElementById('approvals-list');
+                if (!tbody) return;
+
+                tbody.innerHTML = pendingApprovals.map(function(item) {
+                    return '<tr>' +
+                        '<td>' + item.name + '</td>' +
+                        '<td>' + item.seller + '</td>' +
+                        '<td>₦' + item.price.toLocaleString() + '</td>' +
+                        '<td>' + item.date + '</td>' +
+                        '<td>' +
+                            '<button class="btn-approve" onclick="window.approveItem(' + item.id + ')">Approve</button>' +
+                            '<button class="btn-reject" onclick="window.rejectItem(' + item.id + ')">Reject</button>' +
+                        '</td>' +
+                    '</tr>';
+                }).join('');
+
+                updateAdminStats();
+            };
+
+            window.approveItem = function(id) {
+                var item = listings.find(function(l) { return l.id === id; });
+                if (item) item.status = 'approved';
+
+                pendingApprovals = pendingApprovals.filter(function(p) { return p.id !== id; });
+                renderApprovals();
+                alert('Item approved and is now live!');
+            };
+
+            window.rejectItem = function(id) {
+                listings = listings.filter(function(l) { return l.id !== id; });
+                pendingApprovals = pendingApprovals.filter(function(p) { return p.id !== id; });
+                renderApprovals();
+                alert('Item rejected and removed.');
+            };
+
+            function updateAdminStats() {
+                var listingsEl = document.getElementById('stat-listings');
+                var pendingEl = document.getElementById('stat-pending');
+                if (listingsEl) listingsEl.textContent = listings.filter(function(l) { return l.status === 'approved'; }).length.toLocaleString();
+                if (pendingEl) pendingEl.textContent = pendingApprovals.length;
+            }
+
+            // ===== INIT =====
+            document.addEventListener('DOMContentLoaded', function() {
+                renderListings();
+                renderApprovals();
+                updateAdminStats();
+                updateCartBadge();
             });
-
-            listings.push(newItem);
-
-            alert('Item submitted for approval! It will be visible once approved by admin.');
-            event.target.reset();
-            showPage('listings');
-            updateAdminStats();
-        }
-
-        // ===== AUTH =====
-        function handleLogin(event) {
-            event.preventDefault();
-            alert('Login successful! Welcome back.');
-            showPage('home');
-        }
-
-        function handleRegister(event) {
-            event.preventDefault();
-            alert('Account created successfully! Please login.');
-            showPage('login');
-        }
-
-        // ===== ADMIN =====
-        function renderApprovals() {
-            const tbody = document.getElementById('approvals-list');
-            if (!tbody) return;
-
-            tbody.innerHTML = pendingApprovals.map(item => `
-                <tr>
-                    <td>${item.name}</td>
-                    <td>${item.seller}</td>
-                    <td>₦${item.price.toLocaleString()}</td>
-                    <td>${item.date}</td>
-                    <td>
-                        <button class="btn-approve" onclick="approveItem(${item.id})">Approve</button>
-                        <button class="btn-reject" onclick="rejectItem(${item.id})">Reject</button>
-                    </td>
-                </tr>
-            `).join('');
-
-            updateAdminStats();
-        }
-
-        function approveItem(id) {
-            const item = listings.find(l => l.id === id);
-            if (item) item.status = 'approved';
-
-            pendingApprovals = pendingApprovals.filter(p => p.id !== id);
-            renderApprovals();
-            alert('Item approved and is now live!');
-        }
-
-        function rejectItem(id) {
-            listings = listings.filter(l => l.id !== id);
-            pendingApprovals = pendingApprovals.filter(p => p.id !== id);
-            renderApprovals();
-            alert('Item rejected and removed.');
-        }
-
-        function updateAdminStats() {
-            const listingsEl = document.getElementById('stat-listings');
-            const pendingEl = document.getElementById('stat-pending');
-            if (listingsEl) listingsEl.textContent = listings.filter(l => l.status === 'approved').length.toLocaleString();
-            if (pendingEl) pendingEl.textContent = pendingApprovals.length;
-        }
-
-        // ===== INIT =====
-        document.addEventListener('DOMContentLoaded', () => {
-            renderListings();
-            renderApprovals();
-            updateAdminStats();
-            updateCartBadge();
-        });
+        })();
     </script>
 </body>
 </html>
