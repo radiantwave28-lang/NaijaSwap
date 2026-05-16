@@ -17,6 +17,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .nav-links a:hover { color: #f97316; }
 .btn-login { background: #f97316; padding: 8px 20px !important; border-radius: 20px; }
 
+/* MOBILE MENU */
+.mobile-menu-btn { display: none; color: white; font-size: 24px; cursor: pointer; background: none; border: none; padding: 10px; }
+
 /* HERO */
 .hero { min-height: 100vh; background: linear-gradient(135deg, #f97316 0%, #dc2626 100%); color: white; display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 40px; }
 .hero-content h1 { font-size: 64px; font-weight: 900; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
@@ -34,7 +37,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 
 /* FEATURES */
 .features { display: flex; justify-content: center; gap: 30px; font-size: 15px; flex-wrap: wrap; opacity: 0.9; }
-.features span { background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(10px); }
+.features span { background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 20px; backdrop-filter: blur(10px); display: flex; align-items: center; gap: 8px; }
+.feature-icon { font-size: 20px; }
 
 /* LISTINGS PAGE */
 .page-header { display: flex; justify-content: space-between; align-items: center; margin: 80px 0 30px; flex-wrap: wrap; gap: 20px; }
@@ -63,14 +67,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; }
 .auth-switch { text-align: center; margin-top: 20px; color: #6b7280; }
 .auth-switch a { color: #f97316; font-weight: 600; }
-
-/* PRODUCT DETAIL */
-.product-detail { margin-top: 80px; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.product-detail-image { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; background: #e5e7eb; }
-.product-detail-info h1 { font-size: 32px; color: #1f2937; margin-bottom: 15px; }
-.product-detail-info .price { font-size: 36px; margin-bottom: 20px; }
-.product-detail-info .description { color: #6b7280; margin-bottom: 30px; line-height: 1.8; }
 
 /* CART */
 .cart-page { margin-top: 80px; }
@@ -128,12 +124,14 @@ tr:hover { background: #f9fafb; }
 @media (max-width: 768px) {
 .hero-content h1 { font-size: 40px; }
 .tagline { font-size: 20px; }
-.nav-links { display: none; }
+.mobile-menu-btn { display: block; }
+.nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #1f2937; flex-direction: column; padding: 20px; gap: 15px; }
+.nav-links.active { display: flex; }
+.nav-links a { padding: 10px 0; border-bottom: 1px solid #374151; }
 .sidebar { width: 100%; position: relative; min-height: auto; }
 .main-content { margin-left: 0; }
 .stats { grid-template-columns: 1fr; }
 .page-header { flex-direction: column; align-items: flex-start; }
-.product-detail-grid { grid-template-columns: 1fr; }
 .cart-item { flex-direction: column; text-align: center; }
 .filters { width: 100%; }
 .filters input, .filters select { width: 100%; }
@@ -145,7 +143,8 @@ tr:hover { background: #f9fafb; }
 <div class="nav-brand">
 <a href="index.html">NijaSwap</a>
 </div>
-<div class="nav-links">
+<button class="mobile-menu-btn" onclick="document.getElementById('nav-links').classList.toggle('active')">&#9776;</button>
+<div class="nav-links" id="nav-links">
 <a href="index.html">Home</a>
 <a href="listings.html">Listings</a>
 <a href="sell.html">Sell Item</a>
@@ -167,19 +166,72 @@ tr:hover { background: #f9fafb; }
 <option value="gaming">Gaming</option>
 <option value="electronics">Electronics</option>
 <option value="fashion">Fashion</option>
+<option value="furniture">Furniture</option>
+<option value="property">Property</option>
+<option value="jobs">Jobs</option>
+<option value="services">Services</option>
+<option value="agriculture">Agriculture</option>
+<option value="health-&-beauty">Health & Beauty</option>
+<option value="sports">Sports</option>
+<option value="baby-&-kids">Baby & Kids</option>
+<option value="food-&-drinks">Food & Drinks</option>
+<option value="books">Books</option>
+<option value="pets">Pets</option>
+<option value="arts-&-crafts">Arts & Crafts</option>
+<option value="musical-instruments">Musical Instruments</option>
+<option value="tools-&-equipment">Tools & Equipment</option>
+<option value="auto-parts">Auto Parts</option>
+<option value="building-materials">Building Materials</option>
+<option value="home-appliances">Home Appliances</option>
+<option value="jewelry-&-watches">Jewelry & Watches</option>
+<option value="toys">Toys</option>
+<option value="office-supplies">Office Supplies</option>
 </select>
 <select>
 <option value="all">All Locations</option>
-<option value="lagos">Lagos</option>
-<option value="abuja">Abuja</option>
-<option value="ph">Port Harcourt</option>
+<option value="abia">Abia</option>
+<option value="adamawa">Adamawa</option>
+<option value="akwa-ibom">Akwa Ibom</option>
+<option value="anambra">Anambra</option>
+<option value="bauchi">Bauchi</option>
+<option value="bayelsa">Bayelsa</option>
+<option value="benue">Benue</option>
+<option value="borno">Borno</option>
+<option value="cross-river">Cross River</option>
+<option value="delta">Delta</option>
+<option value="ebonyi">Ebonyi</option>
+<option value="edo">Edo</option>
+<option value="ekiti">Ekiti</option>
+<option value="enugu">Enugu</option>
+<option value="fct-abuja">FCT Abuja</option>
+<option value="gombe">Gombe</option>
+<option value="imo">Imo</option>
+<option value="jigawa">Jigawa</option>
+<option value="kaduna">Kaduna</option>
 <option value="kano">Kano</option>
+<option value="katsina">Katsina</option>
+<option value="kebbi">Kebbi</option>
+<option value="kogi">Kogi</option>
+<option value="kwara">Kwara</option>
+<option value="lagos">Lagos</option>
+<option value="nasarawa">Nasarawa</option>
+<option value="niger">Niger</option>
+<option value="ogun">Ogun</option>
+<option value="ondo">Ondo</option>
+<option value="osun">Osun</option>
+<option value="oyo">Oyo</option>
+<option value="plateau">Plateau</option>
+<option value="rivers">Rivers</option>
+<option value="sokoto">Sokoto</option>
+<option value="taraba">Taraba</option>
+<option value="yobe">Yobe</option>
+<option value="zamfara">Zamfara</option>
 </select>
 </div>
 </div>
 <div class="grid">
 <div class="card">
-<img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" alt="iPhone" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=iPhone'">
+<img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400" alt="iPhone 15 Pro Max" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=iPhone+15+Pro+Max'">
 <div class="card-body">
 <h3>iPhone 15 Pro Max</h3>
 <p class="price">N1,200,000</p>
@@ -188,7 +240,7 @@ tr:hover { background: #f9fafb; }
 </div>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400" alt="Toyota" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Toyota'">
+<img src="https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?w=400" alt="Toyota Camry 2020" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Toyota+Camry+2020'">
 <div class="card-body">
 <h3>Toyota Camry 2020</h3>
 <p class="price">N8,500,000</p>
@@ -197,7 +249,7 @@ tr:hover { background: #f9fafb; }
 </div>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=400" alt="MacBook" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=MacBook'">
+<img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=400" alt="MacBook Pro M3" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=MacBook+Pro+M3'">
 <div class="card-body">
 <h3>MacBook Pro M3</h3>
 <p class="price">N2,500,000</p>
@@ -206,7 +258,7 @@ tr:hover { background: #f9fafb; }
 </div>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="PS5" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=PS5'">
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400" alt="PlayStation 5" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=PlayStation+5'">
 <div class="card-body">
 <h3>PlayStation 5</h3>
 <p class="price">N450,000</p>
@@ -215,7 +267,7 @@ tr:hover { background: #f9fafb; }
 </div>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400" alt="TV" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=TV'">
+<img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400" alt="Samsung 65 TV" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Samsung+65+TV'">
 <div class="card-body">
 <h3>Samsung 65 TV</h3>
 <p class="price">N680,000</p>
@@ -224,7 +276,7 @@ tr:hover { background: #f9fafb; }
 </div>
 </div>
 <div class="card">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Shoes" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Shoes'">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400" alt="Nike Air Jordan" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Nike+Air+Jordan'">
 <div class="card-body">
 <h3>Nike Air Jordan</h3>
 <p class="price">N85,000</p>
@@ -232,6 +284,61 @@ tr:hover { background: #f9fafb; }
 <span class="category">fashion</span>
 </div>
 </div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Infinix" alt="Infinix Hot 40" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Infinix+Hot+40'">
+<div class="card-body">
+<h3>Infinix Hot 40</h3>
+<p class="price">N185,000</p>
+<p class="location">Ibadan</p>
+<span class="category">phones</span>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Honda" alt="Honda Accord 2019" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Honda+Accord+2019'">
+<div class="card-body">
+<h3>Honda Accord 2019</h3>
+<p class="price">N6,200,000</p>
+<p class="location">Enugu</p>
+<span class="category">cars</span>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Dell" alt="Dell XPS 15" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Dell+XPS+15'">
+<div class="card-body">
+<h3>Dell XPS 15</h3>
+<p class="price">N1,800,000</p>
+<p class="location">Kaduna</p>
+<span class="category">laptops</span>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Xbox" alt="Xbox Series X" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Xbox+Series+X'">
+<div class="card-body">
+<h3>Xbox Series X</h3>
+<p class="price">N380,000</p>
+<p class="location">Benin City</p>
+<span class="category">gaming</span>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=LG+Fridge" alt="LG Refrigerator" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=LG+Refrigerator'">
+<div class="card-body">
+<h3>LG Refrigerator</h3>
+<p class="price">N450,000</p>
+<p class="location">Onitsha</p>
+<span class="category">electronics</span>
+</div>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x180?text=Gucci" alt="Gucci Bag" class="card-image" onerror="this.src='https://via.placeholder.com/300x180?text=Gucci+Bag'">
+<div class="card-body">
+<h3>Gucci Bag</h3>
+<p class="price">N250,000</p>
+<p class="location">Lagos</p>
+<span class="category">fashion</span>
+</div>
+</div>
+
 </div>
 </div>
 <footer class="footer">
